@@ -12,7 +12,7 @@ data$date <- as.Date(data$date)
 ```r
 st <- group_by(data,date) %>%  
         summarise(steps = sum(steps, na.rm = T))  
-ggplot(data = st, aes(x=date,y=steps)) + geom_bar(stat = "identity")
+ggplot(data = st, aes(x=steps)) + geom_histogram(binwidth = 1000)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)
@@ -65,7 +65,7 @@ data3$steps[is.na(data3$steps)] <- data3$avg[is.na(data3$steps)]
 data3 <-select(data3,steps,date,interval)
 st <- group_by(data3,date) %>%  
         summarise(steps = sum(steps, na.rm = T))  
-ggplot(data = st, aes(x=date,y=steps)) + geom_bar(stat = "identity")
+ggplot(data = st, aes(x=steps)) + geom_histogram(binwidth = 1000)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)
